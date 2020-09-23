@@ -11,7 +11,7 @@ COPY search-api-solr /tmp/search-api-solr
 
 RUN set -eux; \
 	apt-get update; \
-	apt-get install -y
+	apt-get install -y \
 	    gosu \
 	    curl \
 	    jq \
