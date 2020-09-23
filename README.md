@@ -1,14 +1,13 @@
 # Apache Solr Docker Image
 
-Forked from [`wodby/solr`](https://github.com/wodby/solr). Their build process
-has become slightly out of date and is opinionated to their stack.
-
 ## Why this image?
 
-This image extends [`wodby/base-solr`](https://github.com/wodby/base-solr),
-an Alpine-based implementation of the upstream solr image. It diverges to
-include ["jump-start" config sets](https://www.drupal.org/node/3070455) from the
-Drupal `search_api_solr` module.
+Forked from [`wodby/solr`](https://github.com/wodby/solr). Their build process
+has become slightly out of date and is opinionated to their stack. This image
+extends [`library/solr`](https://github.com/docker-solr/docker-solr), but
+preserves the Wodby-inspired bootstrapping to chown the data directory to the
+`solr` user, as well as a build pipeline that imports Drupal's `search_api_solr`
+jump-start config sets for immediate use.
 
 ## Tags
 
@@ -40,7 +39,7 @@ services:
     command:
     - solr-precreate
     - my-core
-    - search_api_solr_8.x-4.0
+    - /opt/docker-solr/configsets/search_api_solr_4.1.6
 volumes:
   solr: {}
 ```
@@ -54,7 +53,7 @@ containers:
   args:
   - solr-precreate
   - my-core
-  - search_api_solr_8.x-4.0
+  - /opt/docker-solr/configsets/search_api_solr_4.1.6
   image: fruition/solr:8
   volumeMounts:
   - mountPath: /opt/solr
