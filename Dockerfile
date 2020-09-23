@@ -30,8 +30,7 @@ RUN set -eux; \
     rm -rf \
         /tmp/configsets \
         /tmp/search-api-solr \
-        /var/lib/apt/lists/*; \
-
+        /var/lib/apt/lists/*;
 
 COPY entrypoint.sh /
 
