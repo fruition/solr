@@ -17,7 +17,7 @@ RUN set -eux; \
 	    jq \
 	    python3-pip \
 	; \
-    pip3 install yq; \
+    pip3 install --no-cache-dir yq; \
     \
     chown -R solr:solr /opt/solr /etc/default/ /var/solr; \
     \
@@ -25,12 +25,11 @@ RUN set -eux; \
     /tmp/search-api-solr/download.sh; \
     chown -R solr:solr /opt/docker-solr/configsets; \
     \
-    pip3 uninstall yq; \
-    apt-get remove python3-pip jq; \
+    pip3 uninstall -y yq; \
+    apt-get remove -y python3-pip jq; \
     rm -rf \
         /tmp/configsets \
         /tmp/search-api-solr \
-        ~/.cache/pip \
         /var/lib/apt/lists/*; \
 
 
