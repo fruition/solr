@@ -31,13 +31,7 @@ RUN set -ex; \
     \
     pip3 install yq; \
     \
-    # 8.x version has a symlink and wrong permissions.
-    if [[ -d "/opt/solr-${SOLR_VER}" ]]; then \
-        rm -rf /opt/solr; \
-        mv "/opt/solr-${SOLR_VER}" /opt/solr; \
-        chown -R solr:solr /opt/solr /etc/default/; \
-        cd /opt/solr; \
-    fi; \
+    chown -R solr:solr /opt/solr /etc/default/ \
     echo "mkdir -p /opt/solr/server/solr && chown solr:solr /opt/solr/server/solr" > /usr/local/bin/init_volumes; \
     chmod +x /usr/local/bin/init_volumes; \
     echo 'solr ALL=(root) NOPASSWD:SETENV: /usr/local/bin/init_volumes' > /etc/sudoers.d/solr; \
