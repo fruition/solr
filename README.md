@@ -17,6 +17,9 @@ Drupal `search_api_solr` module.
 Prior versions of Solr may be configured for builds if demand is demonstrated by
 community usage.
 
+This image only builds to "current" Drupal API compatibility as pulled from the
+module update API, meaning Drupal 8+.
+
 ## Environment Variables
 
 | Variable                  | Default Value | Description                     |
