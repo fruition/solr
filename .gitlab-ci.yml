@@ -14,7 +14,7 @@ after_script:
 build:
   stage: build
   script:
-    - docker login fruitionautomation -p $DOCKERHUB_TOKEN
+    - echo $DOCKERHUB_TOKEN | docker login -u fruitionautomation --password-stdin
     - ./build.sh
 
 deploy-branches:
