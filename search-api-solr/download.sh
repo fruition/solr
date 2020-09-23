@@ -2,14 +2,12 @@
 
 set -e
 
-if [[ -n "${DEBUG}" ]]; then
-    set -x
-fi
-
 cd /opt/docker-solr/
 
 api_url="https://updates.drupal.org/release-history/search_api_solr"
 search_api_url="https://ftp.drupal.org/files/projects/search_api_solr"
+
+echo -n "Downloading Search Api Solr configurations for Solr ${SOLR_VER:0:1}"
 
 for drupal in "current"; do
     versions=($(curl -s "${api_url}/${drupal}" | xq -r '.project.releases[] | .[] | select (has("version_extra") | not).version'))
