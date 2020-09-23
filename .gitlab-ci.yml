@@ -1,6 +1,10 @@
 # Primary development of this project occurs on Fruition's GitLab instance;
 # push branches and tags to GitHub, where the Packagist integration is.
 
+stages:
+  - build
+  - mirror
+
 variables:
   GITHUB_REPO: "git@github.com:fruition/solr.git"
 
@@ -8,11 +12,13 @@ after_script:
   - docker logout || true
 
 build:
+  stage: build
   script:
     - docker login fruitionautomation -p $DOCKERHUB_TOKEN
     - ./build.sh
 
 deploy-branches:
+  stage: mirror
   only:
     - branches
   script:
@@ -23,6 +29,7 @@ deploy-branches:
       git push github HEAD:$CI_COMMIT_REF_NAME
 
 deploy-tags:
+  stage: mirror
   only:
     - tags
   script:
