@@ -11,7 +11,7 @@ docker build --no-cache \
   .
 
 docker tag "$DOCKER_HUB_IMAGE":"${SOLR_VER}" "$DOCKER_HUB_IMAGE":latest
-docker tag "$DOCKER_HUB_IMAGE":"${SOLR_VER}" "${SOLR_VER:0:1}"
+docker tag "$DOCKER_HUB_IMAGE":"${SOLR_VER}" "$DOCKER_HUB_IMAGE":"${SOLR_VER:0:1}"
 
 docker push "$DOCKER_HUB_IMAGE":"${SOLR_VER}"
 docker push "$DOCKER_HUB_IMAGE":"${SOLR_VER:0:1}"
