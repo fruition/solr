@@ -58,6 +58,6 @@ containers:
     subPath: solr/data
 ```
 
-After the core is created, you _can_ (but don't ned to) remove the `args`
+After the core is created, you _can_ (but don't need to) remove the `args`
 section and the container will proceed directly to running Solr in the
 foreground.
