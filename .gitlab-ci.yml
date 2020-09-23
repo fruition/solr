@@ -2,7 +2,7 @@
 # push branches and tags to GitHub, where the Packagist integration is.
 
 variables:
-  GITHUB_REPO: git@github.com:fruition/solr.git
+  GITHUB_REPO: "git@github.com:fruition/solr.git"
 
 deploy-branches:
   only:
