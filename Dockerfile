@@ -14,7 +14,6 @@ ENV SOLR_HEAP="1024m" \
 USER root
 
 COPY search-api-solr /tmp/search-api-solr
-COPY configsets /tmp/configsets
 
 RUN set -ex; \
     \
