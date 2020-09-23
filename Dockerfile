@@ -27,6 +27,7 @@ RUN set -eux; \
     chown -R solr:solr /opt/docker-solr/configsets; \
     pip3 uninstall -y yq; \
     apt-get remove -y python3-pip jq; \
+    apt-get autoremove -y; \
     rm -rf \
         /tmp/configsets \
         /tmp/search-api-solr \
