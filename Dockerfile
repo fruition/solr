@@ -31,7 +31,7 @@ RUN set -ex; \
     \
     pip3 install yq; \
     \
-    chown -R solr:solr /opt/solr /etc/default/ \
+    chown -R solr:solr /opt/solr /etc/default/; \
     echo "mkdir -p /opt/solr/server/solr && chown solr:solr /opt/solr/server/solr" > /usr/local/bin/init_volumes; \
     chmod +x /usr/local/bin/init_volumes; \
     echo 'solr ALL=(root) NOPASSWD:SETENV: /usr/local/bin/init_volumes' > /etc/sudoers.d/solr; \
