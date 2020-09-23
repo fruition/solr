@@ -1,12 +1,15 @@
 # Primary development of this project occurs on Fruition's GitLab instance;
 # push branches and tags to GitHub, where the Packagist integration is.
 
+variables:
+  GITHUB_REPO: git@github.com:fruition/solr.git
+
 deploy-branches:
   only:
     - branches
   script:
     - cp $DEPLOY_KEY deploy && chmod 400 deploy
-    - git remote add github git@github.com:fruition/mac-dev-shim.git || true
+    - git remote add github $GITHUB_REPO || true
     - GIT_SSH_COMMAND="ssh -i deploy -o UserKnownHostsFile=$KNOWN_HOSTS"
       git push github HEAD:$CI_COMMIT_REF_NAME
 
@@ -15,6 +18,6 @@ deploy-tags:
     - tags
   script:
     - cp $DEPLOY_KEY deploy && chmod 400 deploy
-    - git remote add github git@github.com:fruition/mac-dev-shim.git || true
+    - git remote add github $GITHUB_REPO || true
     - GIT_SSH_COMMAND="ssh -i deploy -o UserKnownHostsFile=$KNOWN_HOSTS"
       git push --tags github
