@@ -59,7 +59,6 @@ RUN set -ex; \
         /opt/solr/server/solr/mycores \
         /var/cache/apk/*
 
-COPY bin /usr/local/bin
 COPY entrypoint.sh /
 
 USER solr

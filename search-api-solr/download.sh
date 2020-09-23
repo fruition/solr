@@ -33,6 +33,8 @@ for drupal in "current" "7.x"; do
             conf_dir="configsets/search_api_solr_${version}"
             mkdir -p "${conf_dir}"
             mv "${dir}/solr-conf/${SOLR_VER:0:1}.x" "${conf_dir}/conf"
+        elif [[ -d "${dir}/solr-conf-templates" ]]; then
+            echo "This version of solr does not provide full or jump-start configsets. They should be generated via the module and added manually."
         else
             echo "does not support Solr ${SOLR_VER:0:1}.x"
         fi
