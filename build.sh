@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 export SOLR_VER=8.6.2
 DOCKER_HUB_IMAGE=fruition/solr
 
