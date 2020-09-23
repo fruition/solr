@@ -40,7 +40,7 @@ services:
     command:
     - solr-precreate
     - my-core
-    - /opt/docker-solr/configsets/search_api_solr_8.x-4.0
+    - search_api_solr_8.x-4.0
 volumes:
   solr: {}
 ```
@@ -54,7 +54,7 @@ containers:
   args:
   - solr-precreate
   - my-core
-  - /opt/docker-solr/configsets/search_api_solr_8.x-4.0
+  - search_api_solr_8.x-4.0
   image: fruition/solr:8
   volumeMounts:
   - mountPath: /opt/solr
