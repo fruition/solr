@@ -35,7 +35,7 @@ services:
   solr:
     image: fruition/solr:8
     volumes:
-    - solr:/opt/solr/server/solr
+    - solr:/var/solr
     command:
     - solr-precreate
     - my-core
@@ -56,7 +56,7 @@ containers:
   - /opt/docker-solr/configsets/search_api_solr_4.1.6
   image: fruition/solr:8
   volumeMounts:
-  - mountPath: /opt/solr
+  - mountPath: /var/solr
     name: your-pvc
     subPath: solr
 ```
