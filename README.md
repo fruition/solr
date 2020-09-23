@@ -5,9 +5,10 @@ has become slightly out of date and is opinionated to their stack.
 
 ## Why this image?
 
-This image extends `wodby/solr-base`, an Alpine-based implementation of the
-upstream solr image. It diverges to include ["jump-start" config sets](https://www.drupal.org/node/3070455)
-from the Drupal `search_api_solr` module.
+This image extends [`wodby/base-solr`](https://github.com/wodby/base-solr),
+an Alpine-based implementation of the upstream solr image. It diverges to
+include ["jump-start" config sets](https://www.drupal.org/node/3070455) from the
+Drupal `search_api_solr` module.
 
 ## Tags
 
