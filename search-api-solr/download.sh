@@ -23,7 +23,7 @@ for drupal in "current"; do
 
         echo -n "Search Api Solr ${version}: "
 
-        if [[ -d "${dir}/jump-start/solr${SOLR_VER}" ]]; then
+        if [[ -d "${dir}/jump-start/solr${SOLR_VER:0:1}" ]]; then
             echo "adding jump-start config set for ${SOLR_VER:0:1}.x"
             conf_dir="configsets/search_api_solr_${version}"
             mkdir -p "${conf_dir}"
