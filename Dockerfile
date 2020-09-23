@@ -23,7 +23,7 @@ RUN set -eux; \
     chown -R solr:solr /opt/solr /etc/default/ /var/solr; \
     \
     mkdir -p /opt/docker-solr/configsets; \
-    bash /tmp/search-api-solr/download.sh; \
+    /tmp/search-api-solr/download.sh; \
     chown -R solr:solr /opt/docker-solr/configsets; \
     \
     rm -rf \
@@ -32,10 +32,7 @@ RUN set -eux; \
 
 COPY entrypoint.sh /
 
-USER solr
-
-VOLUME /opt/solr/server/solr
-WORKDIR /opt/solr/server/solr
+WORKDIR /opt/docker-solr
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["solr-foreground"]

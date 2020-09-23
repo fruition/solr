@@ -4,4 +4,4 @@ set -e
 
 init-var-solr
 
-gosu docker-entrypoint.sh "$@"
+gosu solr docker-entrypoint.sh "$@"
