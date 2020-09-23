@@ -12,7 +12,7 @@ Drupal `search_api_solr` module.
 
 ## Tags
 
-* `8`, `latest` _([Dockerfile](https://github.com/fruition/solr/blob/master/Dockerfile))_
+* `8.6.2`, `8`, `latest` _([Dockerfile](https://github.com/fruition/solr/blob/master/Dockerfile))_
 
 Prior versions of Solr may be configured for builds if demand is demonstrated by
 community usage.
@@ -57,9 +57,9 @@ containers:
   - /opt/docker-solr/configsets/search_api_solr_8.x-4.0
   image: fruition/solr:8
   volumeMounts:
-  - mountPath: /opt/solr/server/solr
+  - mountPath: /opt/solr
     name: your-pvc
-    subPath: solr/data
+    subPath: solr
 ```
 
 After the core is created, you _can_ (but don't need to) remove the `args`
