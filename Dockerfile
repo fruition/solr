@@ -4,8 +4,13 @@ FROM solr:${SOLR_VER}
 
 ARG SOLR_VER
 
+# Default heap size, set the solr version for tooling and disable large/huge
+# pages, which requires an init container/kernel tuning in Linux environments
+# and is not required for many small installs. Override at runtime should the
+# need arise. See https://github.com/docker-solr/docker-solr/issues/273
 ENV SOLR_HEAP="1024m" \
-    SOLR_VER="${SOLR_VER}"
+    SOLR_VER="${SOLR_VER}" \
+    GC_TUNE="-XX:-UseLargePages"
 
 # We use gosu to drop down at runtime.
 USER root
