@@ -1,5 +1,8 @@
 ARG SOLR_VER
 
+# This package was forked from wodby/solr but takes a different approach to
+# bringing in the jump-start config sets from Drupal. However, there is still
+# compelling reason to use the Wodby base imaege, e.g. it is alpine-based.
 FROM wodby/base-solr:${SOLR_VER}
 
 ARG SOLR_VER

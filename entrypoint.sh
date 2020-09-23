@@ -31,8 +31,4 @@ fi
 
 sed -E -i 's@^#SOLR_HEAP=".*"@'"SOLR_HEAP=${SOLR_HEAP}"'@' "${conf_file}"
 
-if [[ "${1}" == 'make' ]]; then
-    exec "$@" -f /usr/local/bin/actions.mk
-else
-    exec docker-entrypoint.sh "$@"
-fi
+exec docker-entrypoint.sh "$@"
