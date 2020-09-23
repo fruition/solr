@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export SOLR_VER=8.x
+export SOLR_VER=8
 DOCKER_HUB_IMAGE=fruition/solr
 
 docker build \
