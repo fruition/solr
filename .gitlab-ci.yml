@@ -4,6 +4,14 @@
 variables:
   GITHUB_REPO: "git@github.com:fruition/solr.git"
 
+after_script:
+  - docker logout || true
+
+build:
+  script:
+    - docker login fruitionautomation -p $DOCKERHUB_TOKEN
+    - ./build.sh
+
 deploy-branches:
   only:
     - branches
