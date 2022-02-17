@@ -11,6 +11,7 @@ ARG SOLR_VER
 ENV SOLR_HEAP="1024m" \
     SOLR_VER="${SOLR_VER}" \
     GC_TUNE="-XX:-UseLargePages"
+    WRITEABLE_DIRS="/var/solr"
 
 # We use gosu to drop down at runtime.
 USER root
@@ -36,9 +37,12 @@ RUN set -eux; \
     rm -rf \
         /tmp/configsets \
         /tmp/search-api-solr \
-        /var/lib/apt/lists/*;
+        /var/lib/apt/lists/* \
+ && mkdir -p /usr/lib/fruition/bootstrap
 
 COPY entrypoint.sh /
+
+COPY bootstrap/*.sh /usr/lib/fruition/bootstrap/
 
 WORKDIR /opt/docker-solr
 
