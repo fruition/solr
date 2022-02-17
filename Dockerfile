@@ -10,7 +10,7 @@ ARG SOLR_VER
 # need arise. See https://github.com/docker-solr/docker-solr/issues/273
 ENV SOLR_HEAP="1024m" \
     SOLR_VER="${SOLR_VER}" \
-    GC_TUNE="-XX:-UseLargePages"
+    GC_TUNE="-XX:-UseLargePages" \
     WRITEABLE_DIRS="/var/solr"
 
 # We use gosu to drop down at runtime.
